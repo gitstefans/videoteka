@@ -1,0 +1,16 @@
+.imagediv
+{
+    width: 250px;
+    height: 350px;
+}
+.carddiv
+{
+    width: 250px;
+    height: 450px;
+    margin-bottom: 15px;
+}
+.imagediv:hover
+{
+    width: 270px;
+    height: 370px;
+}
