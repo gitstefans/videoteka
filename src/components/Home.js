@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import './Home.css';
 import MovieCard from '../components/MovieCard';
-//import MovieList from '../components/MovieList';
 import { Container, Row, Col } from 'react-bootstrap';
-import axios from 'axios';  
+import axios from 'axios';
+import MovieDetails from './MovieDetails';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 
 
 class Home extends Component {
     constructor(){
         super();
         this.state = {
-            movies: []
+            movies: [],
+            movie : ''
         }
     }
 
@@ -25,20 +28,33 @@ class Home extends Component {
                 console.log(error))
     }
 
-    render() { 
-        let movieCards = this.state.movies.map(movie =>{
+    handleClick = value => event =>
+    {
+        var movie = value;
+        this.setState({ movie });
+        console.log(movie);
+        <MovieDetails movieDetails={movie}/> 
+    }
+
+    render() {
+        let movieCards = this.state.movies.map((movie) =>{
             return (
                 <Col sm="3">
-                    <MovieCard movie={movie}  className="movie"/>
-                </Col>
+                    <Link to="/serije" key={movie} onClick={this.handleClick(movie)}>             
+                    <MovieCard movie={movie} className="movie"/>
+                    </Link>
+                </Col>     
             )
         })
-        return ( 
+               
+        return (
+            <div>
             <Container fluid className="con">
                 <Row>
                     {movieCards}
                 </Row>
             </Container>
+            </div>
          );
     }
 }
