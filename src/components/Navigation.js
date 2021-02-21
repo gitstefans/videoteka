@@ -13,8 +13,8 @@ const Navigation = () =>{
     <Nav className="mr-auto">
       <Nav.Link href="/">Pocetna</Nav.Link>
       <Nav.Link href="/api/movies">Filmovi</Nav.Link>
-      <Link to="serije">
-      <Nav.Link href="/#">Serije</Nav.Link>
+      <Link to="/movie">
+      <Nav.Link href="/#">Movie</Nav.Link>
       </Link>
       <NavDropdown title="Zanrovi" id="collasible-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Akcioni</NavDropdown.Item>

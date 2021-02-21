@@ -1,30 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './MovieDetails.css';
+import Card from 'react-bootstrap/Card';
+import { useState, useEffect } from "react";
 
-class MovieDetails extends Component {
-    constructor(props){
-        super(props);
-        }
+function MovieDetails (props) {
+    const [movie, setMovie]=useState({});
     
+    useEffect(() => {
+        fetch('http://localhost:5000/api/movies/'+ props.match.params.movieId)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                setMovie(result);
+            });
+    });      
     
-    render() {
-        return ( 
+    return( 
             <div className="div1">
-                <div>
-                    <br/>
-                <strong><h3>{this.props.movie.name}</h3></strong>
-                <strong>Description:</strong>"Young musician Zach Sobiech discovers his cancer has spread,  leaving him just a few months<br/>
-                 to live. With limited time, he follows his dream and makes an album, unaware <br/>
-                  that it will soon be a viral music phenomenon. "
-                </div>
-                <br/>
-                <img className="imageDiv" src={"./images/clouds.jpg"}/>
-                <div>
-                    
-                </div>
+                <Card>
+                    <Card.Body>
+                        <Card.Title>Name:{movie.name}</Card.Title>
+                        <Card.Text>Description:{movie.description}</Card.Text>
+                        <Card.Text>Year:{movie.year}</Card.Text>
+                        <Card.Text>Genre:{movie.genre}</Card.Text>
+                        <br/>
+                        <Card.Img className="movieImage" variant="top" src={"./images/" + movie.imageUrl} />
+                    </Card.Body>
+                </Card>
             </div>
-         );
-    }
+    )
 }
  
 export default MovieDetails;

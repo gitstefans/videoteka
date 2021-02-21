@@ -15,8 +15,7 @@ function App() {
       <Router>
         <Navigation />      
         <Switch>
-            <Route path="/Serije" component={MovieDetails}>
-                <MovieDetails/>
+            <Route path="/movie/:movieId" component={MovieDetails}>
             </Route>
             <Route path="/" component={Home}>
                 <Home/>
