@@ -2,6 +2,7 @@ import React from 'react';
 import './MovieDetails.css';
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from "react";
+import VideoPlayer from 'react-video-js-player';
 
 function MovieDetails (props) {
     const [movie, setMovie]=useState({});
@@ -13,18 +14,21 @@ function MovieDetails (props) {
                 (result) => {
                 setMovie(result);
             });
-    });      
-    
+    });
+    const video = movie.video;
+
     return( 
             <div className="div1">
-                <Card>
+                <Card className="card">
                     <Card.Body>
-                        <Card.Title>Name:{movie.name}</Card.Title>
-                        <Card.Text>Description:{movie.description}</Card.Text>
-                        <Card.Text>Year:{movie.year}</Card.Text>
-                        <Card.Text>Genre:{movie.genre}</Card.Text>
+                        <Card.Title className="cardTitle">Name: {movie.name}</Card.Title>
+                        <Card.Text>Description: {movie.description}</Card.Text>
+                        <Card.Text>Year: {movie.year}</Card.Text>
+                        <Card.Text>Genre: {movie.genre}</Card.Text>
                         <br/>
-                        <Card.Img className="movieImage" variant="top" src={"./images/" + movie.imageUrl} />
+                        <Card.Img className="movieImage" variant="top" src={"/images/" + movie.imageUrl} />
+                        <br />
+                        <VideoPlayer className="videoDiv" src={"/videos/" + movie.video} />
                     </Card.Body>
                 </Card>
             </div>
