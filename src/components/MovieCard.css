@@ -14,3 +14,8 @@
     width: 270px;
     height: 370px;
 }
+.carddiv:hover
+{
+    width: 270px;
+    height: 470px;
+}

@@ -34,7 +34,7 @@ class Home extends Component {
             return (
                 <div>
                     <Col sm="3">
-                        <a href={'/movie/' + movie.movieId}  >
+                        <a className="movieLink" href={'/movies/movie/' + movie.movieId}  >
                             <MovieCard movie={movie} className="movie"/>
                         </a>
                     </Col>
