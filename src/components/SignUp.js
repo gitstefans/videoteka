@@ -6,7 +6,7 @@ export default class SignUp extends Component {
         return (
             <div className="SignUp">
             <form>
-                <h3>Sign Up</h3>
+                <h3 className="titleSignUp">Sign Up</h3>
 
                 <div className="form-group">
                     <label>First name</label>

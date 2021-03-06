@@ -38,7 +38,7 @@ function MovieDetails (props) {
                         <Card.Text>Genre: {movie.genre}</Card.Text>
                         </div>
                         </strong>
-                        <VideoPlayer className="videoDiv" src={'/videos/'+movie.video} />
+                        <VideoPlayer className="videoDiv" src={'/videos/clouds.mp4'} />
                         </div>
                         
                         
